@@ -72,7 +72,30 @@ console.log(makeCounter());
   count() // 2
   count() // 3
   count() // 4
+  
+  ----------------------------------------------
+      var makeCounter = function() {
+  var counter = 0;
+//   var counter = 1;
+  return function() {
+      return ++counter;
+    //   return coutner++;
+  };
+};
 
+var count = makeCounter();
+
+// console.log(count);
+  
+var firstCall = count();  // firstCall = 1
+var secondCall = count(); // secondCall = 2;
+var thirdCall = count();  // thirdCall = 3
+
+console.log(firstCall);
+console.log(secondCall);
+console.log(thirdCall);
+
+-----------------------------------------------
 
 
 //Next Problem
@@ -104,7 +127,26 @@ addContact(1, refreshContactList);
 /*
   Now, similar to the last problem, write a function called 'fnCounter' that accepts two parameters. The first parameter will be an anonymous function and the second parameter, 'N', will be a number. Now, in 'fnCounter', allow the anonymous funciton to be invoked 'N' number of times. After it's been invoked 'N' number of times, return 'STOP'.
 */
+--------------------------------------------------------------
+var fnCounter = function(funct, numberOfTimes) {
+    while (counter < numberOfTimes) {
+        funct();
+    }
+    return 'STOP';
+};
 
+var counter = 0; //This is for testing purposes.
+
+var paramFn = function() { // This is the function to be passed into 'fnCounter'
+  counter++; // Don't edit this function!
+  console.log(counter);
+};
+
+var stopMessage = fnCounter(paramFn, 8); // Don't edit this line! 
+// Should call the param1 function 5 times then return 'STOP'.
+
+console.log(stopMessage);
+-------------------------------------------------------------------------------
 
 
 //Next Problem
@@ -155,5 +197,27 @@ addContact(1, refreshContactList);
 
   *Hint: Don't let this fool you. Break down what's really happening here.
 */
+    
+-------------------------------------------------------------------------------
+    //var test = [1, 2, 3];
 
+//test[0]();
+
+var test = [function(){return 0;}, function(){return 1;}, 
+  function(){return 2;}, function(){return 3;}];
+
+for (var i = 0; i < test.length; i++) {
+    console.log(test[i]());
+}
+
+-------------------------------------------------------------------------------
+    
+    var test = [function(){return 0;}, function(){return 1;}, 
+  function(){return 2;}, function(){return 3;}];
+
+for (var i = 0; i < test.length; i++) {
+    console.log(test[i]());
+}
+
+------------------------------------------------------------------------------
 
