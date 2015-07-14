@@ -119,7 +119,7 @@ alert(newMyName("Sam"));
 
 function myName(name) {
   return name;
-  }
+}
 
 
 //Next problem
